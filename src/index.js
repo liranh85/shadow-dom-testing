@@ -1,5 +1,13 @@
-import MyClass from './components/MyClass'
 import './scss/index.scss'
 
-const myClass = new MyClass('Welcome to Webpack!')
-myClass.greet()
+let shadow = document.getElementById('shadow').attachShadow({ mode: 'open' })
+const style = document.createElement('style')
+style.textContent = `
+    p {
+        color: red;
+    }
+`
+shadow.appendChild(style)
+const p = document.createElement('p')
+p.innerHTML = 'I\'m a paragraph in a Shadow DOM!'
+shadow.appendChild(p)
